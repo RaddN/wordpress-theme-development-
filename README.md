@@ -89,7 +89,80 @@ Theme=>new folder(no space) => index.php => style.css=> screenshot.png(1200*900)
                    }
                </style>
                <?php
-               add_action('login_enqueue_scripts','login_logo_change');
+               add_action('login_enqueue_scripts','login_logo_change'); /n
+   ** custom login Page create /n
+       **in custom-login-page.php/n
+                   <?php/n
+            /**/n
+            * Template Name: Custom Login Page/n
+            *//n
+            get_header();/n
+            if ( ! is_user_logged_in() ) {/n
+                $args = array/n
+                    'redirect' => admin_url(), // redirect to admin dashboard./n
+                    'form_id' => 'custom_loginform',/n
+                    'label_username' => __( 'Username:' ),/n
+                    'label_password' => __( 'Password:' ),/n
+                    'label_remember' => __( 'Remember Me' ),/n
+                    'label_log_in' => __( 'Log Me In' ),/n
+                     'remember' => true/n
+                );/n
+            wp_login_form( $args );/n
+            }/n
+            get_footer();/n
+   ***edirect wp-login.php to Custom Login Page/n
+ ** in functions.php/n
+       function redirect_login_page() {/n
+        $login_url  = home_url( '/login' );/n
+        $url = basename($_SERVER['REQUEST_URI']); // get requested URL/n
+        isset( $_REQUEST['redirect_to'] ) ? ( $url   = "wp-login.php" ): 0; // if users ssend request to wp-admin/n
+        if( $url  == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET')  {/n
+            wp_redirect( $login_url );/n
+            exit;/n
+        }/n
+    }/n
+    add_action('init','redirect_login_page');/n
+   function error_handler() {/n
+    $login_page  = home_url( '/login' );/n
+    global $errors;/n
+    $err_codes = $errors->get_error_codes(); // get WordPress built-in error codes/n
+    $_SESSION["err_codes"] =  $err_codes;/n
+    wp_redirect( $login_page ); // keep users on the same page/n
+    exit;/n
+    }/n
+    add_filter( 'login_errors', 'error_handler');/n
+** in custom_login_page.php/n
+   $err_codes = isset( $_SESSION["err_codes"] )? $_SESSION["err_codes"] : 0;/n
+    if( $err_codes !== 0 ){/n
+        echo display_error_message(  $err_codes );/n
+}/n
+function display_error_message( $err_code ){/n
+    // Invalid username./n
+    if ( in_array( 'invalid_username', $err_code ) ) {/n
+        $error = '<strong>ERROR</strong>: Invalid username.';/n
+    }/n
+    // Incorrect password./n
+    if ( in_array( 'incorrect_password', $err_code ) ) {/n
+        $error = '<strong>ERROR</strong>: The password you entered is incorrect.';/n
+    }/n
+    // Empty username./n
+    if ( in_array( 'empty_username', $err_code ) ) {/n
+        $error = '<strong>ERROR</strong>: The username field is empty.';/n
+    }/n
+    // Empty password./n
+    if ( in_array( 'empty_password', $err_code ) ) {/n
+        $error = '<strong>ERROR</strong>: The password field is empty.';/n
+    }/n
+    // Empty username and empty password./n
+    if( in_array( 'empty_username', $err_code )  &&  in_array( 'empty_password', $err_code )){/n
+        $error = '<strong>ERROR</strong>: The username and password are empty.';/n
+    }/n
+    return $error;/n
+    }/n
+   
+
+   
+           
 
          
          
