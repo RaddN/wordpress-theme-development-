@@ -1,5 +1,5 @@
 Software
-1. wampserver/xamp
+1. wampserver/xamp /n
 2. wordpress download
 Theme=>new folder(no space) => index.php => style.css=> screenshot.png(1200*900)
 **add in style.css
