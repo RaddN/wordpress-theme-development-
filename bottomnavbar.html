@@ -1,0 +1,73 @@
+<style>
+.bottom-appbar {
+  height: 70px;
+color:black;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  .tabs {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    .tab {
+      background: white;
+      width: 33.4%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-top: 1px solid #eee;
+      box-shadow: 1x 1x 3px #ccc, -1px -1px 3px #ccc;
+      font-size: 24px;
+      span {
+        font-size: 12px;
+      }
+      i {
+        font-size: 24px;
+      }
+    }
+.is-active> p{
+     transform: translate(-2px,-115%);
+}
+    .is-active> .fab {
+      border-radius: 50%;
+      background-color: #fe989c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 70px;
+      height: 70px;
+      font-weight: bold;
+      font-size: 22px;
+      color: #fff;
+      position: relative;
+      justify-content: center;
+      transform: translate(2px,-60%);
+    }
+  }
+}
+</style>
+  <div class="bottom-appbar  d-md-none">
+    <div class="tabs">
+      <div class="tab is-active">
+<div class="fab">
+       <i class="fa-solid fa-house"></i>
+</div>
+        <span>Home</span>
+      </div>
+      <div class="tab">
+          <div class="fab">
+            +
+        </div>
+      </div>
+      <div class="tab">
+<div class="fab">
+        ❤️️
+</div>
+        <span>Favourites</span>
+      </div>
+    </div>
+  </div>
