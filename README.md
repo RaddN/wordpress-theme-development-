@@ -1,36 +1,36 @@
 Software
 1. wampserver/xamp /n
-2. wordpress download
-Theme=>new folder(no space) => index.php => style.css=> screenshot.png(1200*900)
-**add in style.css
-/*===== (no space)
-    Theme Name:RaddP
-    Theme URI:#
-    Version:1.0.0
-    Author:Raihan Hossain
-    Author URI:raihandevzone.com
-    Text Domain:RaihanHossain
-    Description:Raihan bla bla bla
-    Tags:one,two,three
-    License:GNU General Public License v2 or later
-    License URI:http://www.gnu.org/licenses/gpl-2.0.html
-    Requires at least:4.9.6
-    Requires PHP:5.2.4
-    Tested up to:5.8
-    =====*/
-**add in index.php
-        <?php
-          /*
-          * This template for displaying the header
-          */
-          ?>
-          <!DOCTYPE html>
-          <html lang="<php echo language_attributes();?>" class="no-js">
-          <head>
-            <meta charset = "<?php bloginfo('charset')?>">
-            <meta http-equiv="X-UA-Compatible" content = "IE-edge">
-            <meta name="viewport" content="width=device-width,initial-scale=1.0">
-          </head>
+2. wordpress download /n
+Theme=>new folder(no space) => index.php => style.css=> screenshot.png(1200*900) /n
+**add in style.css /n
+/*===== (no space) /n
+    Theme Name:RaddP /n
+    Theme URI:# /n
+    Version:1.0.0 /n
+    Author:Raihan Hossain /n
+    Author URI:raihandevzone.com /n
+    Text Domain:RaihanHossain /n
+    Description:Raihan bla bla bla /n
+    Tags:one,two,three /n
+    License:GNU General Public License v2 or later /n
+    License URI:http://www.gnu.org/licenses/gpl-2.0.html /n
+    Requires at least:4.9.6 /n
+    Requires PHP:5.2.4 /n
+    Tested up to:5.8 /n
+    =====*/ /n
+**add in index.php /n
+        <?php /n
+          /* /n
+          * This template for displaying the header /n
+          */ /n
+          ?> /n
+          <!DOCTYPE html> /n
+          <html lang="<php echo language_attributes();?>" class="no-js"> /n
+          <head> /n
+            <meta charset = "<?php bloginfo('charset')?>"> /n
+            <meta http-equiv="X-UA-Compatible" content = "IE-edge"> /n
+            <meta name="viewport" content="width=device-width,initial-scale=1.0"> /n
+          </head> /n 
   ** add in functions.php
             <?php
             /*php
